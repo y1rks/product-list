@@ -1,3 +1,6 @@
+# 起動コマンド
+- npx nodemon index.js
+
 # DB設定
 - create user 'dbuser' identified by '0000';
 - grant all on *.* to dbuser;
@@ -9,6 +12,3 @@
 - npm init -y
 - npm install express mysql
 - npm install nodemon -D
-
-# 起動コマンド
-- npx nodemon index.js
