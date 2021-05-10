@@ -1,6 +1,13 @@
 # 起動コマンド
 - npx nodemon index.js
 
+# リクエスト
+- 登録 /register { name: "product", price: "9999", description: "foobar" }
+- 検索 /search?q=iphone
+- 編集 /edit { id: 99, name: "product", price: "9999", description: "foobar" }
+- 削除 /delete?id=99
+- 確認 /
+
 # DB User設定
 - create user 'dbuser' identified by '0000';
 - grant all on *.* to dbuser;
