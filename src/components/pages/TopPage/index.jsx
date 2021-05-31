@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SEARCH_URL = "http://localhost:3000/api/search?q=";
+const DELETE_URL = "http://localhost:3000/api/delete?id=";
 
 function fetchProducts(event, setPosts) {
   const url = SEARCH_URL + event.target.value;
@@ -11,6 +12,25 @@ function fetchProducts(event, setPosts) {
     })
     .then((data) => {
       setPosts(data);
+    });
+}
+
+function deleteProduct(id, setPosts) {
+  const url = DELETE_URL + id;
+  fetch(url, {
+    method: "GET",
+  })
+    .then(async (res) => {
+      return res.json();
+    })
+    .then(() => {
+      fetch(SEARCH_URL, { method: "GET" })
+        .then(async (res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setPosts(data);
+        });
     });
 }
 
@@ -30,7 +50,7 @@ const TopPage = () => {
   return (
     <>
       <h1>Products List</h1>
-      <Link to="/register?hoge=hoge">Register</Link>
+      <Link to="/register">Register</Link>
       <div>
         <p>Search:</p>
         <input
@@ -51,6 +71,9 @@ const TopPage = () => {
               <Link to={"/edit/" + post.id}>
                 <button>Edit</button>
               </Link>
+              <button onClick={(e) => deleteProduct(post.id, setPosts)}>
+                Delete
+              </button>
             </div>
           ))}
         </ul>
