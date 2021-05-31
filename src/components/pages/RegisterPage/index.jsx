@@ -14,13 +14,9 @@ function registerProduct(name, price, description) {
       price,
       description,
     }),
-  })
-    .then(async (res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
+  }).then(async (res) => {
+    return res.json();
+  });
 }
 
 const RegisterPage = () => {

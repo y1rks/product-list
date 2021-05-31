@@ -10,7 +10,6 @@ function fetchProducts(event, setPosts) {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       setPosts(data);
     });
 }
