@@ -30,9 +30,9 @@ const TopPage = () => {
   return (
     <>
       <h1>Products List</h1>
-      <Link to="/play/hoge">Player Page</Link>
-      <p>---------------------</p>
+      <Link to="/register">Register</Link>
       <div>
+        <p>Search:</p>
         <input type="text" onChange={e => {fetchProducts(e, setPosts)}}></input>
       </div>
       <div>
