@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "react": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2016
+},
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-extra-semi": "warn",
+    "no-unused-vars": "off",
+    "no-undef": "warn",
+    "quotes": ["warn", "single"],
+    "space-before-blocks": ["warn", { "functions": "always" }]
+  }
+}
