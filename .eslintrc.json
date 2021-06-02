@@ -2,18 +2,22 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true,
-    "react": true
+    "es6": true
   },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
-    "ecmaVersion": 2016
-},
-  "extends": "eslint:recommended",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
   "rules": {
     "no-extra-semi": "warn",
     "no-unused-vars": "off",
     "no-undef": "warn",
     "quotes": ["warn", "single"],
-    "space-before-blocks": ["warn", { "functions": "always" }]
+    "space-before-blocks": ["warn", { "functions": "always" }],
+    "jsx-quotes": ["error", "prefer-single"]
   }
 }

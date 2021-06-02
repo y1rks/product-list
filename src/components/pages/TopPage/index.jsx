@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const SEARCH_URL = "http://localhost:3000/api/search?q=";
-const DELETE_URL = "http://localhost:3000/api/delete?id=";
+const SEARCH_URL = 'http://localhost:3000/api/search?q=';
+const DELETE_URL = 'http://localhost:3000/api/delete?id=';
 
 function fetchProducts(event, setPosts) {
   const url = SEARCH_URL + event.target.value;
-  fetch(url, { method: "GET" })
-    .then(async (res) => {
+  fetch(url, { method: 'GET' })
+    .then((res) => {
       return res.json();
     })
     .then((data) => {
@@ -18,14 +18,14 @@ function fetchProducts(event, setPosts) {
 function deleteProduct(id, setPosts) {
   const url = DELETE_URL + id;
   fetch(url, {
-    method: "GET",
+    method: 'GET',
   })
-    .then(async (res) => {
+    .then((res) => {
       return res.json();
     })
     .then(() => {
-      fetch(SEARCH_URL, { method: "GET" })
-        .then(async (res) => {
+      fetch(SEARCH_URL, { method: 'GET' })
+        .then((res) => {
           return res.json();
         })
         .then((data) => {
@@ -38,8 +38,8 @@ const TopPage = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch(SEARCH_URL, { method: "GET" })
-      .then(async (res) => {
+    fetch(SEARCH_URL, { method: 'GET' })
+      .then((res) => {
         return res.json();
       })
       .then((data) => {
@@ -50,11 +50,11 @@ const TopPage = () => {
   return (
     <>
       <h1>Products List</h1>
-      <Link to="/register">Register</Link>
+      <Link to='/register'>Register</Link>
       <div>
         <p>Search:</p>
         <input
-          type="text"
+          type='text'
           onChange={(e) => {
             fetchProducts(e, setPosts);
           }}
@@ -68,7 +68,7 @@ const TopPage = () => {
               <p>Name: {post.name}</p>
               <p>Price: {post.price}円</p>
               <p>Description: {post.description}</p>
-              <Link to={"/edit/" + post.id}>
+              <Link to={'/edit/' + post.id}>
                 <button>Edit</button>
               </Link>
               <button onClick={(e) => deleteProduct(post.id, setPosts)}>
