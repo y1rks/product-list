@@ -1,24 +1,24 @@
-const path = require("path");
-const express = require("express");
+const path = require('path');
+const express = require('express');
 const app = express();
 const port = 3000;
-const mysql = require("mysql");
+const mysql = require('mysql');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 // DB settings
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "dbuser",
-  password: "0000",
-  database: "product_db",
+  host: 'localhost',
+  user: 'dbuser',
+  password: '0000',
+  database: 'product_db',
 });
 
 // Register API
-app.post("/api/register", (req, res) => {
-  const sql = "INSERT INTO products SET ?";
+app.post('/api/register', (req, res) => {
+  const sql = 'INSERT INTO products SET ?';
 
   connection.query(sql, req.body, (err, result, fields) => {
     if (err) throw err;
@@ -27,16 +27,16 @@ app.post("/api/register", (req, res) => {
 });
 
 // Search API
-app.get("/api/search", (req, res) => {
+app.get('/api/search', (req, res) => {
   const sql =
-    "SELECT * " +
-    "FROM products " +
-    "WHERE name LIKE '%" +
+    'SELECT * ' +
+    'FROM products ' +
+    'WHERE name LIKE \'%' +
     req.query.q +
-    "%' " +
-    "OR description LIKE '%" +
+    '%\' ' +
+    'OR description LIKE \'%' +
     req.query.q +
-    "%' ";
+    '%\' ';
   connection.query(sql, (err, result, fields) => {
     if (err) throw err;
     res.json(result);
@@ -44,8 +44,8 @@ app.get("/api/search", (req, res) => {
 });
 
 // Edit API
-app.post("/api/edit", (req, res) => {
-  const sql = "UPDATE products SET ? WHERE id = " + req.body.id;
+app.post('/api/edit', (req, res) => {
+  const sql = 'UPDATE products SET ? WHERE id = ' + req.body.id;
   connection.query(
     sql,
     {
@@ -61,8 +61,8 @@ app.post("/api/edit", (req, res) => {
 });
 
 // Delete API
-app.get("/api/delete", (req, res) => {
-  const sql = "DELETE FROM products WHERE id = " + req.query.id;
+app.get('/api/delete', (req, res) => {
+  const sql = 'DELETE FROM products WHERE id = ' + req.query.id;
   connection.query(sql, (err, result, fields) => {
     if (err) throw err;
     res.json({ isSuccess: true });
@@ -70,8 +70,8 @@ app.get("/api/delete", (req, res) => {
 });
 
 // Data Confirmation API
-app.get("/api/confirm", (req, res) => {
-  const sql = "SELECT * FROM products";
+app.get('/api/confirm', (req, res) => {
+  const sql = 'SELECT * FROM products';
   connection.query(sql, (err, result, fields) => {
     if (err) throw err;
     res.send(result);
@@ -79,8 +79,8 @@ app.get("/api/confirm", (req, res) => {
 });
 
 // SPA Router
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 app.listen(port, () => {

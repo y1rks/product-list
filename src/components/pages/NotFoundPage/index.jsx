@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => (
   <>
     <h1>Not Found!</h1>
-    <Link to="/">Top Page</Link>
+    <Link to='/'>Top Page</Link>
   </>
 );
 
