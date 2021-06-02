@@ -31,12 +31,12 @@ app.get('/api/search', (req, res) => {
   const sql =
     'SELECT * ' +
     'FROM products ' +
-    'WHERE name LIKE \'%' +
+    "WHERE name LIKE '%" +
     req.query.q +
-    '%\' ' +
-    'OR description LIKE \'%' +
+    "%' " +
+    "OR description LIKE '%" +
     req.query.q +
-    '%\' ';
+    "%' ";
   connection.query(sql, (err, result, fields) => {
     if (err) throw err;
     res.json(result);

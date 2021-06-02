@@ -50,11 +50,11 @@ const TopPage = () => {
   return (
     <>
       <h1>Products List</h1>
-      <Link to='/register'>Register</Link>
+      <Link to="/register">Register</Link>
       <div>
         <p>Search:</p>
         <input
-          type='text'
+          type="text"
           onChange={(e) => {
             fetchProducts(e, setPosts);
           }}

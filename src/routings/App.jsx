@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import TopPage from "~/components/pages/TopPage";
-import RegisterPage from "~/components/pages/RegisterPage";
-import EditPage from "~/components/pages/EditPage";
-import NotFoundPage from "~/components/pages/NotFoundPage";
+import TopPage from '~/components/pages/TopPage';
+import RegisterPage from '~/components/pages/RegisterPage';
+import EditPage from '~/components/pages/EditPage';
+import NotFoundPage from '~/components/pages/NotFoundPage';
 
 const AppRouting = () => (
   <BrowserRouter>

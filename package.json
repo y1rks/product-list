@@ -33,7 +33,9 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/register": "^7.13.16",
     "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0"
   }
 }
